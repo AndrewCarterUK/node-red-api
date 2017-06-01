@@ -1,0 +1,31 @@
+{
+    "name": "andrewcarteruk/node-red-api",
+    "description": "A package for communicating with the Node-RED API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Carter",
+            "email": "andrewcarter1992@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "NodeRED\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NodeRED\\Test\\": "test/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}

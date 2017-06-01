@@ -1,0 +1,56 @@
+<?php
+
+namespace NodeRED;
+
+class Importer
+{
+    private $instance;
+    private $token;
+
+    public function __construct(Instance $instance, OAuthToken $token)
+    {
+        $this->instance = $instance;
+        $this->token = $token;
+    }
+
+    public function importFlow($label, $flowJson)
+    {
+        $nodes = json_decode($flowJson, true);
+
+        $id = uniqid();
+
+        $body = [
+            'id' => $id,
+            'label' => $label,
+            'nodes' => $this->getNodes($id, $flowJson)
+        ];
+
+        $data = $this->instance->jsonPost('flow', $body, $this->token);
+
+        return $data['id'];
+    }
+
+    private function getNodes($z, $flowJson)
+    {
+        $rawNodes = json_decode($flowJson, true);
+
+        $idMap = [];
+
+        foreach ($rawNodes as $node) {
+            $idMap[$node['id']] = uniqid();
+        }
+
+        return array_map(function ($node) use ($idMap){
+            $node['id'] = $idMap[$node['id']];
+            $node['z'] = $z;
+
+            foreach ($node['wires'] as &$wire) {
+                foreach ($wire as &$id) {
+                    $id = $idMap[$id];
+                }
+            }
+
+            return $node;
+        }, json_decode($flowJson, true));
+    }
+}
