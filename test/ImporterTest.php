@@ -24,9 +24,17 @@ class ImporterTest extends \PHPUnit_Framework_TestCase
             ->with(
                 $this->equalTo('flow'),
                 $this->callback(function ($flow) {
-                    $this->assertArrayHasKey('id', $flow);
-                    $this->assertArrayHasKey('label', $flow);
-                    $this->assertEquals('Test Flow', $flow['label']);
+                    $this->assertArrayHasKey('id', $flow, 'Flow has id');
+                    $this->assertArrayHasKey('label', $flow, 'Flow has label');
+                    $this->assertEquals('Test Flow', $flow['label'], 'Flow label is correct');
+
+                    $id = $flow['id'];
+
+                    foreach ($flow['nodes'] as $node) {
+                        $this->assertArrayHasKey('id', $node, 'Node has id');
+                        $this->assertArrayHasKey('z', $node, 'Node has parent id');
+                        $this->assertEquals($id, $node['z'], 'Node has correct parent id');
+                    }
 
                     return true;
                 }),

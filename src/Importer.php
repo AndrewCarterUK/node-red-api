@@ -40,7 +40,7 @@ class Importer
             $idMap[$node['id']] = uniqid();
         }
 
-        return array_map(function ($node) use ($idMap){
+        return array_map(function ($node) use ($z, $idMap){
             $node['id'] = $idMap[$node['id']];
             $node['z'] = $z;
 
