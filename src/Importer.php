@@ -42,9 +42,11 @@ class Importer
             $node['id'] = $idMap[$node['id']];
             $node['z'] = $z;
 
-            foreach ($node['wires'] as &$wire) {
-                foreach ($wire as &$id) {
-                    $id = $idMap[$id];
+            if (isset($node['wires'])) {
+                foreach ($node['wires'] as &$wire) {
+                    foreach ($wire as &$id) {
+                        $id = $idMap[$id];
+                    }
                 }
             }
 
