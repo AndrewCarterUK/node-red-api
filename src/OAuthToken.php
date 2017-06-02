@@ -37,7 +37,7 @@ class OAuthToken implements \Serializable
 
     public function serialize()
     {
-        $collected = [$accessToken, $expiryTime, $tokenType];
+        $collected = [$this->accessToken, $this->expiryTime, $this->tokenType];
 
         return serialize($collected);
     }
@@ -46,8 +46,8 @@ class OAuthToken implements \Serializable
     {
         $collected = unserialize($data);
 
-        $this->accessToken = $data[0];
-        $this->expiryTime = $data[1];
-        $this->tokenType = $data[2];
+        $this->accessToken = $collected[0];
+        $this->expiryTime = $collected[1];
+        $this->tokenType = $collected[2];
     }
 }
