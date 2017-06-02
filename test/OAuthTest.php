@@ -19,7 +19,7 @@ class OAuthTest extends \PHPUnit_Framework_TestCase
 
         $oAuth = new OAuth($instance);
 
-        $token = $oAuth->getToken($username, $password);
+        $token = $oAuth->getToken('foo', 'bar');
 
         $this->assertInstanceOf(OAuthToken::class, $token);
     }
