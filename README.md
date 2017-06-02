@@ -1,6 +1,15 @@
 # Node-RED API
 
-A limited set of classes for communicating with the Node-RED API.
+[![Build Status](https://travis-ci.org/AndrewCarterUK/node-red-api.svg?branch=master)](https://travis-ci.org/AndrewCarterUK/node-red-api)
+[![Code Coverage](https://scrutinizer-ci.com/g/AndrewCarterUK/node-red-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/AndrewCarterUK/node-red-api/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AndrewCarterUK/node-red-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AndrewCarterUK/node-red-api/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/andrewcarteruk/node-red-api/v/stable)](https://packagist.org/packages/andrewcarteruk/node-red-api)
+[![Total Downloads](https://poser.pugx.org/andrewcarteruk/node-red-api/downloads)](https://packagist.org/packages/andrewcarteruk/node-red-api)
+[![License](https://poser.pugx.org/andrewcarteruk/node-red-api/license)](https://packagist.org/packages/andrewcarteruk/node-red-api)
+
+By [AndrewCarterUK ![(Twitter)](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/AndrewCarterUK)
+
+A set of classes for communicating with the Node-RED API. Supports importing flows.
 
 ## Authentication
 
