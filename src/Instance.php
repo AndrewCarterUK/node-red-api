@@ -21,7 +21,7 @@ class Instance
 
     public function get($path, $token = null)
     {
-        return $this->makeRequest('GET', $path, [], null);
+        return $this->makeRequest('GET', $path, [], $token);
     }
 
     public function formPost($path, $data, $token = null)
