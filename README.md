@@ -34,8 +34,8 @@ if ($token->hasExpired()) {
 $authScheme = $instance->get('auth/login');
 $flows = $instance->get('flows', $token);
 
-// ::postJson($path, $data, ? $token)
-$instance->postJson('nodes', ['module' => 'node-red-node-suncalc'], $token);
+// ::jsonPost($path, $data, ? $token)
+$instance->jsonPost('nodes', ['module' => 'node-red-node-suncalc'], $token);
 ```
 
 ## Importing Flows

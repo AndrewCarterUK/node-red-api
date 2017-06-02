@@ -51,7 +51,7 @@ class Instance
 
         $statusCode = $response->getStatusCode();
 
-        if ($statusCode >= 200 && $statusCode < 300) {
+        if ($statusCode < 200 || $statusCode >= 300) {
             throw ApiException::fromResponse($response);
         }
 
