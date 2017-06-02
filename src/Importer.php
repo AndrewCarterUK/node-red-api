@@ -15,8 +15,6 @@ class Importer
 
     public function importFlow($label, $flowJson)
     {
-        $nodes = json_decode($flowJson, true);
-
         $id = uniqid();
 
         $body = [
