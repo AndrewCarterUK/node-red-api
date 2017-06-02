@@ -49,6 +49,11 @@ class Instance
 
         $response = $this->client->request($method, $this->endpoint . $path, array_merge($options, $extraOptions));
 
+        return $this->processResponse($response);
+    }
+
+    private function processResponse(ResponseInterface $response)
+    {
         $statusCode = $response->getStatusCode();
 
         if ($statusCode < 200 || $statusCode >= 300) {
