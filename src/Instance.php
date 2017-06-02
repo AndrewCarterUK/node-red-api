@@ -3,6 +3,7 @@
 namespace NodeRED;
 
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
 class Instance
 {
